@@ -1,0 +1,49 @@
+in base.js  (before Barchart..)
+Highcharts.setOptions({
+    lang: {
+        thousandsSep: ','
+    }
+});
+
+
+desis.js
+           series: [
+                {
+                    name: 'Catalog Area Delivered',
+                    // make catalouge spelling consistent
+                    data: getSeries(data.desis.aoi_catalog_area, 'catalogue_area'),
+                    dataLabels: {
+                        enabled: true,
+                        // format: '{point.y:.0f}', // one decimal 
+                        formatter: function() {
+                            if (this.y > 1000000) {
+                              return Highcharts.numberFormat(this.y / 1000, 1) + "M"
+                            } else if (this.y > 1000) {
+                              return Highcharts.numberFormat(this.y / 1000, 1) + "K";
+                            } else {
+                              return this.y
+                            }
+                          }
+                        },  
+                    },
+                // },
+            ],
+        },
+        desis_number_of_files: {
+        ***************************** in planet.js ************
+        legend: {
+                 enabled: false
+            },
+            series: [
+                {  
+                    name: '',        
+                    data: getSeries(data.approved_users.planet_users, 'data')
+                }
+            ],
+
+        },
+        planet_data_downloaded: {
+        ********
+       
+        
+        
