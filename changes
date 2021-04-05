@@ -43,7 +43,27 @@ desis.js
 
         },
         planet_data_downloaded: {
-        ********
+        ********  desis.js
+        desis_total_area_tasked: {
+            ...LINE_CHART_OPTIONS({
+                title:  'Desis Total Area Tasked',
+                yAxisText: 'Total Area Tasked (km2)',
+                xAxisCategories: getSeries(data.desis.aoi_catalog_area, 'mon_year'),
+            }),
+
+            tooltip: {
+                formatter: function() {
+                if (this.y > 1000000) {
+                  return Highcharts.numberFormat(this.y / 1000, 0) + "M"
+                } else if (this.y > 1000) {
+                  return Highcharts.numberFormat(this.y / 1000, 0) + "K";
+                } else {
+                  return this.y
+                }
+              },
+            },
+
+            series: [
        
         
         
